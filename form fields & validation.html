@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form fields & validation</title>
+</head>
+<body>
+
+    <a href="HTML elements.html">HTML elements</a>
+
+    <form>
+        <p>
+        <label for="email_id">E-mail id</label>
+        <input type="email" id="email_id" name="email_id" required>
+        </p>
+        <p>
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required min="18" max="99">
+        </p>
+        <p>
+            <label for="dob">DOB</label>
+            <input type="date" id="dob" name="dob" required>
+        </p>
+        <p>
+            <label for="price">price range</label>
+            <input type="range" name="price" id="price" min="1" max="1000" step="10">
+        </p>
+        <p>
+            <label for="website">URL</label>
+            <input type="url" name="website" id="website">
+        </p>
+        <p>
+            <label for="time">Raising time</label>
+            <input type="time" name="time" id="time">
+        </p>
+        <p>
+            <label for="weak">Weak</label>
+            <input type="week" name="weak" id="weak">
+        </p>
+        <p>
+            <label for="search">search</label>
+            <input type="search" name="search" id="search">
+        </p>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

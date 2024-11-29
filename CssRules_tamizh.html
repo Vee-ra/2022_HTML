@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete CSS Selector Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .selector-example {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .output-section {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            color: #2c3e50;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        /* Demonstration Styles */
+        .universal-demo * {
+            border: 1px solid red;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .type-demo p {
+            color: green;
+        }
+
+        .class-demo .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .id-demo #main-title {
+            color: blue;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .attribute-demo input[type="text"] {
+            border: 2px solid purple;
+            padding: 5px;
+        }
+
+        .attribute-demo input[required] {
+            background-color: lightyellow;
+        }
+
+        .pseudo-demo a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        .pseudo-demo input:focus {
+            outline: 2px solid green;
+            background-color: lightyellow;
+        }
+
+        .first-child-demo li:first-child {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .nth-child-demo tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .descendant-demo .container p {
+            color: blue;
+        }
+
+        .child-demo .parent > .child {
+            border: 2px solid green;
+        }
+
+        .adjacent-demo h2 + p {
+            font-style: italic;
+        }
+
+        .general-sibling-demo h2 ~ p {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Selectors: HTML, CSS, and Output</h1>
+
+    <div class="selector-example universal-demo">
+        <h2>Universal Selector (*)</h2>
+        <pre><code>
+/* CSS */
+* {
+    border: 1px solid red;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* HTML */
+&lt;div&gt;All elements will have red border&lt;/div&gt;
+&lt;p&gt;This includes paragraphs, divs...&lt;/p&gt;
+        </code></pre>
+        <div class="output-section">
+            <div>All elements will have red border</div>
+            <p>This includes paragraphs, divs...</p>
+        </div>
+    </div>
+
+    <div class="selector-example type-demo">
+        <h2>Type Selector</h2>
+        <pre><code>
+/* CSS */
+p {
+    color: green;
+}
+
+/* HTML */
+&lt;p&gt;This paragraph will be green&lt;/p&gt;
+&lt;div&gt;This div will not be affected&lt;/div&gt;
+        </code></pre>
+        <div class="output-section">
+            <p>This paragraph will be green</p>
+            <div>This div will not be affected</div>
+        </div>
+    </div>
+
+    <div class="selector-example class-demo">
+        <h2>Class Selector</h2>
+        <pre><code>
+/* CSS */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+/* HTML */
+&lt;p class="highlight"&gt;Yellow background&lt;/p&gt;
+&lt;div class="highlight"&gt;Also yellow&lt;/div&gt;
+&lt;p&gt;Not highlighted&lt;/p&gt;
+        </code></pre>
+        <div class="output-section">
+            <p class="highlight">Yellow background</p>
+            <div class="highlight">Also yellow</div>
+            <p>Not highlighted</p>
+        </div>
+    </div>
+
+    <div class="selector-example id-demo">
+        <h2>ID Selector</h2>
+        <pre><code>
+/* CSS */
+#main-title {
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* HTML */
+&lt;h1 id="main-title"&gt;This title is blue&lt;/h1&gt;
+&lt;h2&gt;Only one element can have this ID&lt;/h2&gt;
+        </code></pre>
+        <div class="output-section">
+            <h1 id="main-title">This title is blue</h1>
+            <h2>Only one element can have this ID</h2>
+        </div>
+    </div>
+
+    <div class="selector-example attribute-demo">
+        <h2>Attribute Selector</h2>
+        <pre><code>
+/* CSS */
+input[type="text"] {
+    border: 2px solid purple;
+    padding: 5px;
+}
+
+input[required] {
+    background-color: lightyellow;
+}
+
+/* HTML */
+&lt;input type="text" placeholder="Purple border"&gt;
+&lt;input type="email" placeholder="Normal border"&gt;
+&lt;input type="text" required placeholder="Yellow background"&gt;
+        </code></pre>
+        <div class="output-section">
+            <input type="text" placeholder="Purple border">
+            <input type="email" placeholder="Normal border">
+            <input type="text" required placeholder="Yellow background">
+        </div>
+    </div>
+
+    <div class="selector-example pseudo-demo">
+        <h2>Pseudo-Class Selectors</h2>
+        <pre><code>
+/* CSS */
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+input:focus {
+    outline: 2px solid green;
+    background-color: lightyellow;
+}
+
+/* HTML */
+&lt;a href="#"&gt;Hover over me&lt;/a&gt;
+&lt;input type="text" placeholder="Click me"&gt;
+        </code></pre>
+        <div class="output-section">
+            <a href="#">Hover over me</a>
+            <input type="text" placeholder="Click me">
+        </div>
+    </div>
+
+    <div class="selector-example first-child-demo">
+        <h2>:first-child Selector</h2>
+        <pre><code>
+/* CSS */
+li:first-child {
+    color: orange;
+    font-weight: bold;
+}
+
+/* HTML */
+&lt;ul&gt;
+    &lt;li&gt;First item (orange)&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+        </code></pre>
+        <div class="output-section">
+            <ul>
+                <li>First item (orange)</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="selector-example nth-child-demo">
+        <h2>:nth-child Selector</h2>
+        <pre><code>
+/* CSS */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* HTML */
+&lt;table&gt;
+    &lt;tr&gt;&lt;td&gt;Row 1&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Row 2 (highlighted)&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Row 3&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Row 4 (highlighted)&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+        </code></pre>
+        <div class="output-section">
+            <table>
+                <tr><td>Row 1</td></tr>
+                <tr><td>Row 2 (highlighted)</td></tr>
+                <tr><td>Row 3</td></tr>
+                <tr><td>Row 4 (highlighted)</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="selector-example descendant-demo">
+        <h2>Descendant Selector</h2>
+        <pre><code>
+/* CSS */
+.container p {
+    color: blue;
+}
+
+/* HTML */
+&lt;div class="container"&gt;
+    &lt;p&gt;Direct paragraph (blue)&lt;/p&gt;
+    &lt;span&gt;
+        &lt;p&gt;Nested paragraph (also blue)&lt;/p&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+        </code></pre>
+        <div class="output-section">
+            <div class="container">
+                <p>Direct paragraph (blue)</p>
+                <span>
+                    <p>Nested paragraph (also blue)</p>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="selector-example child-demo">
+        <h2>Child Selector (>)</h2>
+        <pre><code>
+/* CSS */
+.parent > .child {
+    border: 2px solid green;
+}
+
+/* HTML */
+&lt;div class="parent"&gt;
+    &lt;div class="child"&gt;Direct child (green border)&lt;/div&gt;
+    &lt;span&gt;
+        &lt;div class="child"&gt;Nested child (no border)&lt;/div&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+        </code></pre>
+        <div class="output-section">
+            <div class="parent">
+                <div class="child">Direct child (green border)</div>
+                <span>
+                    <div class="child">Nested child (no border)</div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="selector-example adjacent-demo">
+        <h2>Adjacent Sibling Selector (+)</h2>
+        <pre><code>
+/* CSS */
+h2 + p {
+    font-style: italic;
+}
+
+/* HTML */
+&lt;h2&gt;Heading&lt;/h2&gt;
+&lt;p&gt;Directly after heading (italic)&lt;/p&gt;
+&lt;p&gt;Another paragraph (normal)&lt;/p&gt;
+        </code></pre>
+        <div class="output-section">
+            <h2>Heading</h2>
+            <p>Directly after heading (italic)</p>
+            <p>Another paragraph (normal)</p>
+        </div>
+    </div>
+
+    <div class="selector-example general-sibling-demo">
+        <h2>General Sibling Selector (~)</h2>
+        <pre><code>
+/* CSS */
+h2 ~ p {
+    color: purple;
+}
+
+/* HTML */
+&lt;h2&gt;Heading&lt;/h2&gt;
+&lt;p&gt;First paragraph (purple)&lt;/p&gt;
+&lt;p&gt;Second paragraph (purple)&lt;/p&gt;
+&lt;span&gt;Not affected&lt;/span&gt;
+        </code></pre>
+        <div class="output-section">
+            <h2>Heading</h2>
+            <p>First paragraph (purple)</p>
+            <p>Second paragraph (purple)</p>
+            <span>Not affected</span>
+        </div>
+    </div>
+</body>
+</html>
